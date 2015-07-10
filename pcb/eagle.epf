@@ -1,0 +1,25 @@
+[Eagle]
+Version="06 06 00"
+Platform="Mac OS X"
+Serial="69216420F3-LSR-WLM-1SP"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="/Applications/EAGLE-6.6.0/lbr/frames.lbr"
+UsedLibrary="/Applications/EAGLE-6.6.0/lbr/led.lbr"
+UsedLibrary="/Applications/EAGLE-6.6.0/lbr/pinhead.lbr"
+UsedLibrary="/Applications/EAGLE-6.6.0/lbr/rcl.lbr"
+UsedLibrary="/Applications/EAGLE-6.6.0/lbr/supply1.lbr"
+UsedLibrary="princessPhone.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="376 230 1214 629"
+State=2
+Number=0
+
+[Desktop]
+Screen="1440 900"
+Window="Win_1"
