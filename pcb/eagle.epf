@@ -7,6 +7,7 @@ Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
+UsedLibrary="/Applications/EAGLE-7.3.0/lbr/switch-omron.lbr"
 UsedLibrary="/Applications/EAGLE-6.6.0/lbr/frames.lbr"
 UsedLibrary="/Applications/EAGLE-6.6.0/lbr/led.lbr"
 UsedLibrary="/Applications/EAGLE-6.6.0/lbr/pinhead.lbr"
