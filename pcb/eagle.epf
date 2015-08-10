@@ -19,6 +19,7 @@ UsedLibrary="/Users/ufanders/Documents/Erogear/GitHub/fos_pcb_pro_control/raveGe
 UsedLibrary="/Users/ufanders/Documents/GitHub/SparkFun-Eagle-Libraries/SparkFun-RF.lbr"
 UsedLibrary="/Users/ufanders/Documents/GitHub/SparkFun-Eagle-Libraries/SparkFun-AnalogIC.lbr"
 UsedLibrary="/Users/ufanders/Documents/GitHub/SparkFun-Eagle-Libraries/SparkFun-PowerIC.lbr"
+UsedLibrary="/Users/ufanders/Downloads/pcb/console_board.lbr"
 
 [Desktop]
 Screen="3120 1050"
