@@ -15820,23 +15820,23 @@ by exp-lbrs.ulp</description>
 <part name="C4" library="rcl" deviceset="C-US" device="C0603" value="0.1UF"/>
 <part name="R2" library="rcl" deviceset="R-US_" device="R0603" value="1K"/>
 <part name="U2" library="princessPhone" deviceset="AG1170*" device="-VERTICAL" technology="-S3"/>
-<part name="C8" library="rcl" deviceset="C-US" device="C0402" value="0.1UF"/>
-<part name="C7" library="rcl" deviceset="C-US" device="C0402" value="1UF"/>
+<part name="C8" library="rcl" deviceset="C-US" device="C0603" value="0.1UF"/>
+<part name="C7" library="rcl" deviceset="C-US" device="C0603" value="1UF"/>
 <part name="C9" library="rcl" deviceset="C-US" device="C0603" value="10UF"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="C10" library="rcl" deviceset="C-US" device="C0402" value="0.1UF"/>
-<part name="R5" library="rcl" deviceset="R-US_" device="R0402" value="10K"/>
+<part name="C10" library="rcl" deviceset="C-US" device="C0603" value="0.1UF"/>
+<part name="R5" library="rcl" deviceset="R-US_" device="R0603" value="10K"/>
 <part name="+3V34" library="supply1" deviceset="+3V3" device=""/>
 <part name="P1" library="raveGearControl" deviceset="TC2030" device="-MCP-NL"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="TP13" library="testpad" deviceset="PTR1" device="B1,27"/>
 <part name="TP14" library="testpad" deviceset="PTR1" device="B1,27"/>
-<part name="R6" library="rcl" deviceset="R-US_" device="R0402" value="10K"/>
-<part name="R7" library="rcl" deviceset="R-US_" device="R0402" value="10K"/>
+<part name="R6" library="rcl" deviceset="R-US_" device="R0603" value="10K"/>
+<part name="R7" library="rcl" deviceset="R-US_" device="R0603" value="10K"/>
 <part name="+3V35" library="supply1" deviceset="+3V3" device=""/>
 <part name="U4" library="SparkFun-RF" deviceset="BLUETOOTH-RN-52" device=""/>
 <part name="FRAME4" library="frames" deviceset="FRAME_B_L" device=""/>
-<part name="C5" library="rcl" deviceset="C-US" device="C0805" value="10UF"/>
+<part name="C5" library="rcl" deviceset="C-US" device="C0603" value="10UF"/>
 <part name="C6" library="rcl" deviceset="C-US" device="C1206" value="22UF"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -15855,8 +15855,8 @@ by exp-lbrs.ulp</description>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="R14" library="rcl" deviceset="R-US_" device="R0402" value="0"/>
-<part name="R15" library="rcl" deviceset="R-US_" device="R0402" value="0"/>
+<part name="R14" library="rcl" deviceset="R-US_" device="R0603" value="0"/>
+<part name="R15" library="rcl" deviceset="R-US_" device="R0603" value="0"/>
 <part name="R16" library="rcl" deviceset="R-US_" device="R0603" value="0"/>
 <part name="R17" library="rcl" deviceset="R-US_" device="R0603" value="0"/>
 <part name="U3" library="raveGear5" deviceset="PI32MX1*D-PT" device="" technology="70"/>
@@ -15950,6 +15950,9 @@ REPLACED LDO WITH SWITCHER, ADDED LEDS</text>
 <text x="144.78" y="160.02" size="2.54" layer="94">2015.08.10</text>
 <text x="193.04" y="154.94" size="2.54" layer="94">CORRECTED A FEW DRC ERRORS,
 REPLACED BIG CAPS AND BUTTONS</text>
+<text x="50.8" y="149.86" size="2.54" layer="94">ANDERS NELSON</text>
+<text x="144.78" y="149.86" size="2.54" layer="94">2015.08.16</text>
+<text x="193.04" y="149.86" size="2.54" layer="94">SYNCED PACKAGE SIZES</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -17517,7 +17520,6 @@ RC4, RC5, RC6, RC7, RC8, RC9</text>
 <approved hash="102,2,129.54,254,+5V,USB_VBUS,,,,"/>
 <approved hash="104,3,63.5,243.84,P1,VDD,+3V3,,,"/>
 <approved hash="104,3,63.5,241.3,P1,VSS(GND),GND,,,"/>
-<approved hash="202,2,109.22,215.9,X1,4,,,,"/>
 <approved hash="104,2,157.48,243.84,U1,PGND,GND,,,"/>
 <approved hash="104,2,157.48,251.46,U1,VIN,USB_VBUS,,,"/>
 <approved hash="104,2,180.34,238.76,U1,AGND,GND,,,"/>
