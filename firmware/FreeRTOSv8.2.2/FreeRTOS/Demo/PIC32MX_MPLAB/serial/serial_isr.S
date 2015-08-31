@@ -5,20 +5,20 @@
 	.set	nomips16
 	.set 	noreorder
  	
-	.extern vU2InterruptHandler
+	.extern vU1InterruptHandler
 	.extern xISRStackTop
-	.global	vU2InterruptWrapper
+	.global	vU1InterruptWrapper
 
 	.set	noreorder
 	.set 	noat
-	.ent	vU2InterruptWrapper
+	.ent	vU1InterruptWrapper
 
-vU2InterruptWrapper:
+vU1InterruptWrapper:
 
 	portSAVE_CONTEXT
-	jal vU2InterruptHandler
+	jal vU1InterruptHandler
 	nop
 	portRESTORE_CONTEXT
 
-	.end	vU2InterruptWrapper
+	.end	vU1InterruptWrapper
 

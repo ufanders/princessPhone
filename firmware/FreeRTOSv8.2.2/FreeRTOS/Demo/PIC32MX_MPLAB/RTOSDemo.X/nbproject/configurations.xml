@@ -17,6 +17,7 @@
       </logicalFolder>
       <itemPath>../FreeRTOSConfig.h</itemPath>
       <itemPath>/Applications/microchip/xc32/v1.31/pic32mx/include/proc/p32mx270f256d.h</itemPath>
+      <itemPath>../HardwareProfile.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -260,7 +261,7 @@
         <property key="periphComp4.gte" value="gt"/>
         <property key="periphComp5.gte" value="gt"/>
         <property key="periphComp6.gte" value="gt"/>
-        <property key="tracecontrol.include.timestamp" value="false"/>
+        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
         <property key="tracecontrol.select" value="0"/>
         <property key="tracecontrol.stallontracebufferfull" value="false"/>
         <property key="tracecontrol.timestamp" value="2"/>
@@ -318,6 +319,10 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0011_CORE_SIM32_UNIMPLEMENTED_RAMACCESS"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W0012_CORE_STACK_OVERFLOW_RESET"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0013_CORE_STACK_UNDERFLOW_RESET"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W0101_SIM_UPDATE_FAILED"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0102_SIM_PERIPH_MISSING"
@@ -325,6 +330,8 @@
         <property key="warningmessagebreakoptions.W0103_SIM_PERIPH_FAILED"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0104_SIM_FAILED_TO_INIT_TOOL"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0105_SIM_INVALID_FIELD"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0201_ADC_NO_STIMULUS_FILE"
                   value="report"/>
@@ -366,6 +373,16 @@
         <property key="warningmessagebreakoptions.W0220_ADC_REFERENCE_LOW_DIGITAL"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0221_ADC_REFERENCE_LOW_OUTPUT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0222_ADC_OVERFLOW" value="report"/>
+        <property key="warningmessagebreakoptions.W0223_ADC_UNDERFLOW" value="report"/>
+        <property key="warningmessagebreakoptions.W0224_ADC_CTMU_NOT_SUPPORTED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0225_ADC_INVALID_CH0S"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0226_ADC_VBAT_NOT_SUPPORTED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0227_ADC_INVALID_ADCS"
                   value="report"/>
         <property key="warningmessagebreakoptions.W1201_DATAFLASH_MEM_OUTSIDE_RANGE"
                   value="report"/>
@@ -582,7 +599,6 @@
         <property key="CHANGE NOTICE" value="true"/>
         <property key="COMPARATOR" value="true"/>
         <property key="DMA" value="true"/>
-        <property key="Freeze All Other Peripherals" value="true"/>
         <property key="I2C1" value="true"/>
         <property key="I2C2" value="true"/>
         <property key="INPUT CAPTURE 1" value="true"/>
@@ -830,7 +846,7 @@
         <property key="periphComp4.gte" value="gt"/>
         <property key="periphComp5.gte" value="gt"/>
         <property key="periphComp6.gte" value="gt"/>
-        <property key="tracecontrol.include.timestamp" value="false"/>
+        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
         <property key="tracecontrol.select" value="0"/>
         <property key="tracecontrol.stallontracebufferfull" value="false"/>
         <property key="tracecontrol.timestamp" value="2"/>
@@ -888,6 +904,10 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0011_CORE_SIM32_UNIMPLEMENTED_RAMACCESS"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W0012_CORE_STACK_OVERFLOW_RESET"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0013_CORE_STACK_UNDERFLOW_RESET"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W0101_SIM_UPDATE_FAILED"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0102_SIM_PERIPH_MISSING"
@@ -895,6 +915,8 @@
         <property key="warningmessagebreakoptions.W0103_SIM_PERIPH_FAILED"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0104_SIM_FAILED_TO_INIT_TOOL"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0105_SIM_INVALID_FIELD"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0201_ADC_NO_STIMULUS_FILE"
                   value="report"/>
@@ -936,6 +958,16 @@
         <property key="warningmessagebreakoptions.W0220_ADC_REFERENCE_LOW_DIGITAL"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0221_ADC_REFERENCE_LOW_OUTPUT"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0222_ADC_OVERFLOW" value="report"/>
+        <property key="warningmessagebreakoptions.W0223_ADC_UNDERFLOW" value="report"/>
+        <property key="warningmessagebreakoptions.W0224_ADC_CTMU_NOT_SUPPORTED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0225_ADC_INVALID_CH0S"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0226_ADC_VBAT_NOT_SUPPORTED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0227_ADC_INVALID_ADCS"
                   value="report"/>
         <property key="warningmessagebreakoptions.W1201_DATAFLASH_MEM_OUTSIDE_RANGE"
                   value="report"/>
@@ -1302,7 +1334,7 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
-        <property key="common-include-directories" value=""/>
+        <property key="common-include-directories" value=".."/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="false"/>
         <property key="relaxed-math" value="false"/>
@@ -1316,7 +1348,6 @@
         <property key="COMPARATOR" value="true"/>
         <property key="CTMU" value="true"/>
         <property key="DMA" value="true"/>
-        <property key="Freeze All Other Peripherals" value="true"/>
         <property key="I2C1" value="true"/>
         <property key="I2C2" value="true"/>
         <property key="INPUT CAPTURE 1" value="true"/>

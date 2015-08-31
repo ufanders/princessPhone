@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/ParTest/ParTest_Explorer16.c</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/main.c</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/serial/serial.c</file>
+            <file>file:/Applications/microchip/xc32/v1.32/pic32mx/include/peripheral/uart.h</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/HardwareProfile.h</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/main_blinky.c</file>
+        </group>
+    </open-files>
 </project-private>

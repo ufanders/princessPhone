@@ -1,73 +1,3 @@
-/*
-    FreeRTOS V8.2.2 - Copyright (C) 2015 Real Time Engineers Ltd.
-    All rights reserved
-
-    VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
-
-    This file is part of the FreeRTOS distribution.
-
-    FreeRTOS is free software; you can redistribute it and/or modify it under
-    the terms of the GNU General Public License (version 2) as published by the
-    Free Software Foundation >>!AND MODIFIED BY!<< the FreeRTOS exception.
-
-    ***************************************************************************
-    >>!   NOTE: The modification to the GPL is included to allow you to     !<<
-    >>!   distribute a combined work that includes FreeRTOS without being   !<<
-    >>!   obliged to provide the source code for proprietary components     !<<
-    >>!   outside of the FreeRTOS kernel.                                   !<<
-    ***************************************************************************
-
-    FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
-    WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-    FOR A PARTICULAR PURPOSE.  Full license text is available on the following
-    link: http://www.freertos.org/a00114.html
-
-    ***************************************************************************
-     *                                                                       *
-     *    FreeRTOS provides completely free yet professionally developed,    *
-     *    robust, strictly quality controlled, supported, and cross          *
-     *    platform software that is more than just the market leader, it     *
-     *    is the industry's de facto standard.                               *
-     *                                                                       *
-     *    Help yourself get started quickly while simultaneously helping     *
-     *    to support the FreeRTOS project by purchasing a FreeRTOS           *
-     *    tutorial book, reference manual, or both:                          *
-     *    http://www.FreeRTOS.org/Documentation                              *
-     *                                                                       *
-    ***************************************************************************
-
-    http://www.FreeRTOS.org/FAQHelp.html - Having a problem?  Start by reading
-    the FAQ page "My application does not run, what could be wrong?".  Have you
-    defined configASSERT()?
-
-    http://www.FreeRTOS.org/support - In return for receiving this top quality
-    embedded software for free we request you assist our global community by
-    participating in the support forum.
-
-    http://www.FreeRTOS.org/training - Investing in training allows your team to
-    be as productive as possible as early as possible.  Now you can receive
-    FreeRTOS training directly from Richard Barry, CEO of Real Time Engineers
-    Ltd, and the world's leading authority on the world's leading RTOS.
-
-    http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
-    including FreeRTOS+Trace - an indispensable productivity tool, a DOS
-    compatible FAT file system, and our tiny thread aware UDP/IP stack.
-
-    http://www.FreeRTOS.org/labs - Where new FreeRTOS products go to incubate.
-    Come and try FreeRTOS+TCP, our new open source TCP/IP stack for FreeRTOS.
-
-    http://www.OpenRTOS.com - Real Time Engineers ltd. license FreeRTOS to High
-    Integrity Systems ltd. to sell under the OpenRTOS brand.  Low cost OpenRTOS
-    licenses offer ticketed support, indemnification and commercial middleware.
-
-    http://www.SafeRTOS.com - High Integrity Systems also provide a safety
-    engineered and independently SIL3 certified version for use in safety and
-    mission critical applications that require provable dependability.
-
-    1 tab == 4 spaces!
-*/
-
-
 /* BASIC INTERRUPT DRIVEN SERIAL PORT DRIVER. 
 
 NOTE:  This driver is primarily to test the scheduler functionality.  It does
@@ -77,6 +7,7 @@ an example of an efficient driver. */
 /* Standard include file. */
 #include <stdlib.h>
 #include <plib.h>
+#include "HardwareProfile.h"
 
 /* Scheduler include files. */
 #include "FreeRTOS.h"
@@ -102,7 +33,7 @@ static volatile portBASE_TYPE xTxHasEnded;
 entry point the IPL setting in the following prototype has no effect.  The
 interrupt priority is set by the call to  ConfigIntUART2() in 
 xSerialPortInitMinimal(). */
-void __attribute__( (interrupt(IPL0AUTO), vector(_UART2_VECTOR))) vU2InterruptWrapper( void );
+void __attribute__( (interrupt(IPL0AUTO), vector(_UART1_VECTOR))) vU1InterruptWrapper( void );
 
 /*-----------------------------------------------------------*/
 
@@ -115,8 +46,24 @@ unsigned short usBRG;
 	xCharsForTx = xQueueCreate( uxQueueLength, ( unsigned portBASE_TYPE ) sizeof( signed char ) );
 
 	/* Configure the UART and interrupts. */
-	
-
+        //TODO: peripheral pin select
+        TRISAbits.TRISA1 = 0;
+        TRISCbits.TRISC0 = 0;
+        
+        unsigned int status1, status2;
+	mSYSTEMUnlock(status1, status2);
+    
+        U1RXR = 0b0110; //U1RX assigned to RPC1
+        U1CTSR = 0b0000; // U1CTS assigned to RPA1
+        RPC0R = 0b0001; // U1TX assigned to RPC0
+        RPB10R = 0b0001; //U1RTS assigned to RPB10
+        
+        mSYSTEMLock(status1, status2);
+    
+        UARTConfigure(UART1, UART_ENABLE_PINS_CTS_RTS);
+        UARTSetDataRate(UART1, GetPeripheralClock(), ulWantedBaud);
+        UARTSetLineControl(UART1, UART_DATA_SIZE_8_BITS | UART_PARITY_NONE | UART_STOP_BITS_1);
+        UARTEnable(UART1, UART_ENABLE | UART_PERIPHERAL | UART_RX | UART_TX);
 
         /*
         usBRG = (unsigned short)(( (float)configPERIPHERAL_CLOCK_HZ / ( (float)16 * (float)ulWantedBaud ) ) - (float)0.5);
@@ -173,7 +120,7 @@ signed portBASE_TYPE xReturn;
 		if(  xTxHasEnded == pdTRUE )
 		{
 			xTxHasEnded = pdFALSE;
-			IFS1SET = _IFS1_U2TXIF_MASK;
+			IFS1SET = _IFS1_U1TXIF_MASK;
 		}
 	}
 
@@ -186,7 +133,7 @@ void vSerialClose( xComPortHandle xPort )
 }
 /*-----------------------------------------------------------*/
 
-void vU2InterruptHandler( void )
+void vU1InterruptHandler( void )
 {
 /* Declared static to minimise stack use. */
 static char cChar;
@@ -195,27 +142,27 @@ static portBASE_TYPE xHigherPriorityTaskWoken;
 	xHigherPriorityTaskWoken = pdFALSE;
 
 	/* Are any Rx interrupts pending? */
-	if( IFS1bits.U2RXIF == 1)
+	if( IFS1bits.U1RXIF == 1)
 	{
-		while( U2STAbits.URXDA )
+		while( U1STAbits.URXDA )
 		{
 			/* Retrieve the received character and place it in the queue of
 			received characters. */
-			cChar = U2RXREG;
+			cChar = U1RXREG;
 			xQueueSendFromISR( xRxedChars, &cChar, &xHigherPriorityTaskWoken );
 		}
-		IFS1CLR = _IFS1_U2RXIF_MASK;
+		IFS1CLR = _IFS1_U1RXIF_MASK;
 	}
 
 	/* Are any Tx interrupts pending? */
-	if( IFS1bits.U2TXIF == 1 )
+	if( IFS1bits.U1TXIF == 1 )
 	{
-		while( ( U2STAbits.UTXBF ) == 0 )
+		while( ( U1STAbits.UTXBF ) == 0 )
 		{
 			if( xQueueReceiveFromISR( xCharsForTx, &cChar, &xHigherPriorityTaskWoken ) == pdTRUE )
 			{
 				/* Send the next character queued for Tx. */
-				U2TXREG = cChar;
+				U1TXREG = cChar;
 			}
 			else
 			{
@@ -225,7 +172,7 @@ static portBASE_TYPE xHigherPriorityTaskWoken;
 			}
 		}
 
-		IFS1CLR = _IFS1_U2TXIF_MASK;
+		IFS1CLR = _IFS1_U1TXIF_MASK;
 	}
 
 	/* If sending or receiving necessitates a context switch, then switch now. */
