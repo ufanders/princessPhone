@@ -46,7 +46,6 @@ unsigned short usBRG;
 	xCharsForTx = xQueueCreate( uxQueueLength, ( unsigned portBASE_TYPE ) sizeof( signed char ) );
 
 	/* Configure the UART and interrupts. */
-        //TODO: peripheral pin select
         TRISAbits.TRISA1 = 0;
         TRISCbits.TRISC0 = 0;
         
@@ -60,16 +59,16 @@ unsigned short usBRG;
         
         mSYSTEMLock(status1, status2);
     
-        UARTConfigure(UART1, UART_ENABLE_PINS_CTS_RTS);
+        //UARTConfigure(UART1, UART_ENABLE_PINS_CTS_RTS);
+        UARTConfigure(UART1, UART_ENABLE_PINS_TX_RX_ONLY);
         UARTSetDataRate(UART1, GetPeripheralClock(), ulWantedBaud);
         UARTSetLineControl(UART1, UART_DATA_SIZE_8_BITS | UART_PARITY_NONE | UART_STOP_BITS_1);
         UARTEnable(UART1, UART_ENABLE | UART_PERIPHERAL | UART_RX | UART_TX);
-
-        /*
-        usBRG = (unsigned short)(( (float)configPERIPHERAL_CLOCK_HZ / ( (float)16 * (float)ulWantedBaud ) ) - (float)0.5);
-	OpenUART1( UART_EN, UART_RX_ENABLE | UART_TX_ENABLE | UART_INT_TX | UART_INT_RX_CHAR, usBRG );
-	ConfigIntUART1( ( configKERNEL_INTERRUPT_PRIORITY + 1 ) | UART_INT_SUB_PR0 | UART_TX_INT_EN | UART_RX_INT_EN );
-        */
+        INTSetVectorPriority(INT_UART_1_VECTOR, INT_PRIORITY_LEVEL_2);
+        INTEnable(INT_U1RX, INT_ENABLED);
+        INTEnable(INT_U1TX, INT_ENABLED);
+        
+        //U1TXREG = 0x55; //works fine!
 
 	xTxHasEnded = pdTRUE;
 
@@ -178,10 +177,3 @@ static portBASE_TYPE xHigherPriorityTaskWoken;
 	/* If sending or receiving necessitates a context switch, then switch now. */
 	portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
 }
-
-
-
-
-
-
-

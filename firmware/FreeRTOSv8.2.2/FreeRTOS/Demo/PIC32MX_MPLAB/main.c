@@ -63,13 +63,14 @@ static void prvSetupHardware(void) {
     // Setup to use the external interrupt controller.
     INTConfigureSystem(INT_SYSTEM_CONFIG_MULT_VECTOR);
 
-    // Enable interrupts
-    //INTEnableInterrupts();
-
     // JTAG port has to be disabled in order for LEDs to work.
     // When ICD3 is used as a debugger it disables JTAG automatically.
     // It does not do so if it is used as a programmer.
     mJTAGPortEnable(DEBUG_JTAGPORT_OFF);
+    
+    ANSELA = 0x00000000; //all pins as digital
+    ANSELB = 0x00000000;
+    ANSELC = 0x00000000;
 
     /* Setup the digital IO for the LED's. */
     vParTestInitialise();

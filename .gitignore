@@ -1,3 +1,4 @@
 build/
 pcb/output/
 doc/
+/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/RTOSDemo.X/dist/BRD_REV_A_PIC32MX170F256D/

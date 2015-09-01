@@ -75,7 +75,7 @@ converted to ticks using the portTICK_PERIOD_MS constant. */
 
 /* The LED used by the communicating tasks and the blinky timer respectively. */
 #define mainTASKS_LED						( 0 )
-#define mainTIMER_LED						( 1 )
+#define mainTIMER_LED						( 0 )
 
 /* Misc. */
 #define mainDONT_BLOCK						( 0 )
@@ -138,7 +138,10 @@ void main_blinky(void) {
             xTimerStart(xTimer, mainDONT_BLOCK);
         }
         
-        xSerialPortInitMinimal( 115200, 64 );
+        //xSerialPortInitMinimal( 115200, 64 );
+        
+         // Enable interrupts
+        INTEnableInterrupts();
 
         /* Start the tasks and timer running. */
         vTaskStartScheduler();
@@ -176,6 +179,7 @@ static void prvQueueSendTask(void *pvParameters) {
         will not block - it shouldn't need to block as the queue should always
         be empty at this point in the code. */
         xQueueSend(xQueue, &ulValueToSend, 0U);
+        
     }
 }
 
@@ -209,5 +213,5 @@ static void prvBlinkyTimerCallback(TimerHandle_t xTimer) {
     function does is toggle the LED.  LED mainTIMER_LED should therefore toggle
     with the period set by mainBLINKY_TIMER_PERIOD. */
     vParTestToggleLED(mainTIMER_LED);
-    xSerialPutChar(1, 'A', ( 250 / portTICK_PERIOD_MS ) );
+    //xSerialPutChar(1, 'A', portMAX_DELAY );
 }
