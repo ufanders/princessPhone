@@ -3,3 +3,4 @@ pcb/output/
 doc/
 /firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/RTOSDemo.X/dist/BRD_REV_A_PIC32MX170F256D/
 /firmware_ringer/Explorer16PIC32MX_1.X/dist/E16_270/
+reference/

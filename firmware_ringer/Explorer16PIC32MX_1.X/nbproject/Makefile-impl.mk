@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=Explorer16PIC32MX_1.X
 
 # Active Configuration
-DEFAULTCONF=default
+DEFAULTCONF=E16_270
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default 
+ALLCONFS=E16_460 E16_270 PP_A 
 
 
 # build
@@ -45,13 +45,17 @@ ALLCONFS=default
 
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=E16_460 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=E16_270 clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=PP_A clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=E16_460 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=E16_270 build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=PP_A build
 
 
 
