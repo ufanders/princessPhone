@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c pots.c rn52.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c pots.c rn52.c dtmf.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/pots.o ${OBJECTDIR}/rn52.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/pots.o.d ${OBJECTDIR}/rn52.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/pots.o ${OBJECTDIR}/rn52.o ${OBJECTDIR}/dtmf.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/pots.o.d ${OBJECTDIR}/rn52.o.d ${OBJECTDIR}/dtmf.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/pots.o ${OBJECTDIR}/rn52.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/pots.o ${OBJECTDIR}/rn52.o ${OBJECTDIR}/dtmf.o
 
 # Source Files
-SOURCEFILES=main.c pots.c rn52.c
+SOURCEFILES=main.c pots.c rn52.c dtmf.c
 
 
 CFLAGS=
@@ -112,6 +112,12 @@ ${OBJECTDIR}/rn52.o: rn52.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/rn52.o 
 	@${FIXDEPS} "${OBJECTDIR}/rn52.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/rn52.o.d" -o ${OBJECTDIR}/rn52.o rn52.c     
 	
+${OBJECTDIR}/dtmf.o: dtmf.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/dtmf.o.d 
+	@${RM} ${OBJECTDIR}/dtmf.o 
+	@${FIXDEPS} "${OBJECTDIR}/dtmf.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/dtmf.o.d" -o ${OBJECTDIR}/dtmf.o dtmf.c     
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -130,6 +136,12 @@ ${OBJECTDIR}/rn52.o: rn52.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/rn52.o.d 
 	@${RM} ${OBJECTDIR}/rn52.o 
 	@${FIXDEPS} "${OBJECTDIR}/rn52.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/rn52.o.d" -o ${OBJECTDIR}/rn52.o rn52.c     
+	
+${OBJECTDIR}/dtmf.o: dtmf.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/dtmf.o.d 
+	@${RM} ${OBJECTDIR}/dtmf.o 
+	@${FIXDEPS} "${OBJECTDIR}/dtmf.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/dtmf.o.d" -o ${OBJECTDIR}/dtmf.o dtmf.c     
 	
 endif
 

@@ -1,5 +1,4 @@
 #define SET_CONFIG_FUSES
-#define _SUPPRESS_PLIB_WARNING
 
 #include "HardwareProfile.h"
 #include <plib.h>

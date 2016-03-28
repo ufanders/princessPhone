@@ -5,6 +5,8 @@
 // Add.... Note that you may also have to add this macro to the assembler 
 // (MPLAB XXX Assembler tab).
 
+#define _SUPPRESS_PLIB_WARNING
+
 #if defined(CFG_E16_460)
         #include "HWP_E16_460.h"
 #elif defined(CFG_E16_270)

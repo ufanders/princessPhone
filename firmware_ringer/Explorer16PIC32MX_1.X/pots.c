@@ -69,14 +69,6 @@ int pots_bellRingStatusGet(void)
     return AG1170_RM_LAT;
 }
 
-//TODO: dial tone
-
-/* 
- * dial tone is a continuous tone having frequencies of 350 and 440 Hz at a level of −13 dBm
- * 
- * http://www.romanblack.com/one_sec.htm#BDA
-*/
-
 //TODO: rotary dial counting
 
 /* If off-hook signal is inactive for more than the period of a numeral tick
