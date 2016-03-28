@@ -126,7 +126,10 @@ void vApplicationTickHook(void) {
 void _general_exception_handler(unsigned long ulCause, unsigned long ulStatus) {
     /* This overrides the definition provided by the kernel.  Other exceptions
     should be handled here. */
-    for (;;);
+    for (;;)
+    {
+        Nop();
+    };
 }
 
 void vAssertCalled(const char * pcFile, unsigned long ulLine) {

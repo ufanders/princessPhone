@@ -100,7 +100,7 @@ vPortTickInterruptHandler:
 
 	portRESTORE_CONTEXT
 
-	.end vPortTickInterruptHandler
+	.end		vPortTickInterruptHandler
 
 /******************************************************************/
 

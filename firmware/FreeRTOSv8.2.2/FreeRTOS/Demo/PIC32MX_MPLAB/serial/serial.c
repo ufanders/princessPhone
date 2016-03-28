@@ -39,16 +39,18 @@ void __attribute__( (interrupt(IPL0AUTO), vector(_UART1_VECTOR))) vU1InterruptWr
 
 xComPortHandle xSerialPortInitMinimal( unsigned long ulWantedBaud, unsigned portBASE_TYPE uxQueueLength )
 {
-unsigned short usBRG;
-
-	/* Create the queues used by the com test task. */
+        unsigned short usBRG;
+  
+	//Create the queues used by the com test task.
 	xRxedChars = xQueueCreate( uxQueueLength, ( unsigned portBASE_TYPE ) sizeof( signed char ) );
+        if(!xRxedChars) while(1);
 	xCharsForTx = xQueueCreate( uxQueueLength, ( unsigned portBASE_TYPE ) sizeof( signed char ) );
+        if(!xCharsForTx) while(1);
 
-	/* Configure the UART and interrupts. */
+	// Configure the UART and interrupts
         TRISAbits.TRISA1 = 0;
         TRISCbits.TRISC0 = 0;
-        
+
         unsigned int status1, status2;
 	mSYSTEMUnlock(status1, status2);
     
@@ -58,12 +60,23 @@ unsigned short usBRG;
         RPB10R = 0b0001; //U1RTS assigned to RPB10
         
         mSYSTEMLock(status1, status2);
-    
+     
         //UARTConfigure(UART1, UART_ENABLE_PINS_CTS_RTS);
         UARTConfigure(UART1, UART_ENABLE_PINS_TX_RX_ONLY);
         UARTSetDataRate(UART1, GetPeripheralClock(), ulWantedBaud);
         UARTSetLineControl(UART1, UART_DATA_SIZE_8_BITS | UART_PARITY_NONE | UART_STOP_BITS_1);
-        UARTEnable(UART1, UART_ENABLE | UART_PERIPHERAL | UART_RX | UART_TX);
+        
+        //UARTEnable(UART1, UART_ENABLE | UART_PERIPHERAL | UART_RX | UART_TX);
+        
+        U1STAbits.URXEN = 1;
+        U1STAbits.UTXEN = 1;
+        
+        U1MODEbits.UEN = 0b00;
+        U1MODEbits.BRGH = 0;
+        U1MODEbits.PDSEL = 0b00;
+        U1MODEbits.STSEL = 0;
+        U1MODEbits.ON = 1;
+        
         INTSetVectorPriority(INT_UART_1_VECTOR, INT_PRIORITY_LEVEL_2);
         INTEnable(INT_U1RX, INT_ENABLED);
         INTEnable(INT_U1TX, INT_ENABLED);
@@ -71,8 +84,14 @@ unsigned short usBRG;
         //U1TXREG = 0x55; //works fine!
 
 	xTxHasEnded = pdTRUE;
-
-	/* Only a single port is implemented so we don't need to return anything. */
+    
+        /*
+        xSerialPutChar(1, 0x01, portMAX_DELAY );//works fine!
+        xSerialPutChar(1, 0x02, portMAX_DELAY );//works fine!
+        xSerialPutChar(1, 0x03, portMAX_DELAY );//works fine!
+         */
+    
+	// Only a single port is implemented so we don't need to return anything.
 	return NULL;
 }
 /*-----------------------------------------------------------*/

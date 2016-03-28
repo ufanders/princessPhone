@@ -4,12 +4,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/microchip/xc32/v1.32/pic32mx/include/peripheral/int_1xx_2xx.h</file>
             <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/main.c</file>
-            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/serial/serial.c</file>
-            <file>file:/Applications/microchip/xc32/v1.32/pic32mx/include/peripheral/uart.h</file>
-            <file>file:/Applications/microchip/xc32/v1.32/pic32mx/include/peripheral/int.h</file>
             <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/main_blinky.c</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/serial/serial.c</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/HardwareProfile.h</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Source/portable/MPLAB/PIC32MX/port_asm.S</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Source/portable/MPLAB/PIC32MX/port.c</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware/FreeRTOSv8.2.2/FreeRTOS/Demo/PIC32MX_MPLAB/FreeRTOSConfig.h</file>
         </group>
     </open-files>
 </project-private>

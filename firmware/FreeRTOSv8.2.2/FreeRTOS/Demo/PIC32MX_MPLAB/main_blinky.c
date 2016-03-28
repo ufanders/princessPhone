@@ -116,14 +116,14 @@ void main_blinky(void) {
     if (xQueue != NULL) {
         /* Create the two tasks as described in the comments at the top of this
         file. */
-        xTaskCreate(prvQueueReceiveTask, /* The function that implements the task. */
-                "Rx", /* The text name assigned to the task - for debug only as it is not used by the kernel. */
-                configMINIMAL_STACK_SIZE, /* The size of the stack to allocate to the task. */
-                (void *) mainQUEUE_RECEIVE_PARAMETER, /* The parameter passed to the task - just to check the functionality. */
-                mainQUEUE_RECEIVE_TASK_PRIORITY, /* The priority assigned to the task. */
-                NULL); /* The task handle is not required, so NULL is passed. */
-
-        xTaskCreate(prvQueueSendTask, "TX", configMINIMAL_STACK_SIZE, (void *) mainQUEUE_SEND_PARAMETER, mainQUEUE_SEND_TASK_PRIORITY, NULL);
+//        xTaskCreate(prvQueueReceiveTask, /* The function that implements the task. */
+//                "Rx", /* The text name assigned to the task - for debug only as it is not used by the kernel. */
+//                configMINIMAL_STACK_SIZE, /* The size of the stack to allocate to the task. */
+//                (void *) mainQUEUE_RECEIVE_PARAMETER, /* The parameter passed to the task - just to check the functionality. */
+//                mainQUEUE_RECEIVE_TASK_PRIORITY, /* The priority assigned to the task. */
+//                NULL); /* The task handle is not required, so NULL is passed. */
+//
+//        xTaskCreate(prvQueueSendTask, "TX", configMINIMAL_STACK_SIZE, (void *) mainQUEUE_SEND_PARAMETER, mainQUEUE_SEND_TASK_PRIORITY, NULL);
 
         /* Create the blinky software timer as described at the top of this
         file. */
@@ -138,10 +138,10 @@ void main_blinky(void) {
             xTimerStart(xTimer, mainDONT_BLOCK);
         }
         
-        //xSerialPortInitMinimal( 115200, 64 );
+        xSerialPortInitMinimal( 115200, 64 );
         
          // Enable interrupts
-        INTEnableInterrupts();
+        //INTEnableInterrupts();
 
         /* Start the tasks and timer running. */
         vTaskStartScheduler();
@@ -152,7 +152,10 @@ void main_blinky(void) {
     there was insufficient FreeRTOS heap memory available for the idle and/or
     timer tasks	to be created.  See the memory management section on the
     FreeRTOS web site for more details. */
-    for (;;);
+    for (;;)
+    {
+        Nop();
+    };
 }
 
 /*-----------------------------------------------------------*/
