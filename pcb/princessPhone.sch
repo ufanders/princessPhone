@@ -15831,8 +15831,8 @@ by exp-lbrs.ulp</description>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="TP13" library="testpad" deviceset="PTR1" device="B1,27"/>
 <part name="TP14" library="testpad" deviceset="PTR1" device="B1,27"/>
-<part name="R6" library="rcl" deviceset="R-US_" device="R0603" value="10K"/>
-<part name="R7" library="rcl" deviceset="R-US_" device="R0603" value="10K"/>
+<part name="R6" library="rcl" deviceset="R-US_" device="R0603" value="4.7K"/>
+<part name="R7" library="rcl" deviceset="R-US_" device="R0603" value="4.7K"/>
 <part name="+3V35" library="supply1" deviceset="+3V3" device=""/>
 <part name="U4" library="SparkFun-RF" deviceset="BLUETOOTH-RN-52" device=""/>
 <part name="FRAME4" library="frames" deviceset="FRAME_B_L" device=""/>
@@ -15953,6 +15953,9 @@ REPLACED BIG CAPS AND BUTTONS</text>
 <text x="50.8" y="149.86" size="2.54" layer="94">ANDERS NELSON</text>
 <text x="144.78" y="149.86" size="2.54" layer="94">2015.08.16</text>
 <text x="193.04" y="149.86" size="2.54" layer="94">SYNCED PACKAGE SIZES</text>
+<text x="50.8" y="144.78" size="2.54" layer="94">ANDERS NELSON</text>
+<text x="144.78" y="144.78" size="2.54" layer="94">2015.09.01</text>
+<text x="193.04" y="144.78" size="2.54" layer="94">ADDED TODO NOTES</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -15970,6 +15973,9 @@ REPLACED BIG CAPS AND BUTTONS</text>
 <text x="261.62" y="231.14" size="2.54" layer="94">2. RN-52 = 30mA avg</text>
 <text x="261.62" y="226.06" size="2.54" layer="94">3. PIC32MX170 = 30mA</text>
 <text x="261.62" y="220.98" size="2.54" layer="94">4. LEDS = 10mA * 4 = 40mA</text>
+<text x="309.88" y="99.06" size="2.54" layer="94">TODO:</text>
+<text x="309.88" y="93.98" size="2.54" layer="94">1. CHANGE TO 6-PIN RJ-11 JACK</text>
+<text x="309.88" y="88.9" size="2.54" layer="94">2. ENLARGE THROUGH-HOLES FOR AG1170</text>
 </plain>
 <instances>
 <instance part="FRAME2" gate="G$1" x="0" y="0"/>

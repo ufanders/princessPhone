@@ -15,10 +15,16 @@ UsedLibrary="/Applications/EAGLE-6.6.0/lbr/rcl.lbr"
 UsedLibrary="/Applications/EAGLE-6.6.0/lbr/supply1.lbr"
 UsedLibrary="/Applications/EAGLE-6.6.0/lbr/testpad.lbr"
 UsedLibrary="princessPhone.lbr"
-UsedLibrary="/Users/ufanders/Documents/Erogear/GitHub/fos_pcb_pro_control/raveGear5.lbr"
 UsedLibrary="/Users/ufanders/Documents/GitHub/SparkFun-Eagle-Libraries/SparkFun-RF.lbr"
 UsedLibrary="/Users/ufanders/Documents/GitHub/SparkFun-Eagle-Libraries/SparkFun-AnalogIC.lbr"
 UsedLibrary="/Users/ufanders/Documents/GitHub/SparkFun-Eagle-Libraries/SparkFun-PowerIC.lbr"
 
+[Win_1]
+Type="Control Panel"
+Loc="0 -22 599 377"
+State=2
+Number=0
+
 [Desktop]
 Screen="3120 1050"
+Window="Win_1"
