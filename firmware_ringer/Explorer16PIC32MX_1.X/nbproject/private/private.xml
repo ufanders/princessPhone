@@ -6,8 +6,13 @@
         <group>
             <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware_ringer/Explorer16PIC32MX_1.X/dtmf.c</file>
             <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware_ringer/Explorer16PIC32MX_1.X/main.c</file>
-            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware_ringer/Explorer16PIC32MX_1.X/pots.c</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware_ringer/Explorer16PIC32MX_1.X/rotary.c</file>
             <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware_ringer/Explorer16PIC32MX_1.X/HWP_E16_270.h</file>
+            <file>file:/Applications/microchip/xc32/v1.32/pic32mx/include/peripheral/int.h</file>
+            <file>file:/Applications/microchip/xc32/v1.32/pic32mx/include/proc/p32mx270f256d.h</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware_ringer/Explorer16PIC32MX_1.X/rn52.c</file>
+            <file>file:/Applications/microchip/xc32/v1.32/pic32mx/include/peripheral/int_1xx_2xx.h</file>
+            <file>file:/Users/ufanders/Documents/GitHub/princessPhone/firmware_ringer/Explorer16PIC32MX_1.X/ag1170.c</file>
         </group>
     </open-files>
 </project-private>

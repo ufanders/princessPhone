@@ -1,7 +1,6 @@
+//TODO: bell ringing
 #include "HardwareProfile.h"
 #include <plib.h>
-
-//TODO: bell ringing
 
 //TIMER DEFINES
 #define PRESCALE 256
@@ -21,6 +20,15 @@ int pots_bellRingInit(char region)
 {
     int divisor;
     
+    //AG1170 STUFF
+    AG1170_RM_LAT = 0; //set mode to normal
+    AG1170_FR_LAT = 0; //deassert the ringer line
+    AG1170_PD_LAT = 0; //power-on state
+    AG1170_RM_TRIS = 0;
+    AG1170_FR_TRIS = 0;
+    AG1170_PD_TRIS = 0;
+    AG1170_SHK_TRIS = 1;
+    
     switch(region)
     {
         case 0: //US
@@ -39,9 +47,6 @@ int pots_bellRingInit(char region)
     //RINGING TIMEBASE
     OpenTimer1(T1_OFF | T1_SOURCE_INT | T1_PS_1_256, (TIMER_PR_DIVIDEND/divisor));
     ConfigIntTimer1(T1_INT_ON | T1_INT_PRIOR_2);
-    
-    AG1170_RM_LAT = 0; //set mode to normal
-    AG1170_FR_LAT = 0; //deassert the ringer line
     
     return 0;
 }
@@ -69,9 +74,12 @@ int pots_bellRingStatusGet(void)
     return AG1170_RM_LAT;
 }
 
-//TODO: rotary dial counting
+void __ISR(_TIMER_1_VECTOR, ipl2) Timer1Handler(void)
+{
+    //Toggle the ringer line
+    AG1170_FR_LAT ^= 1;
+    
+    // clear the interrupt flag
+    mT1ClearIntFlag();
+}
 
-/* If off-hook signal is inactive for more than the period of a numeral tick
- * then the rotary counter must reset. Also the phone number aggregator
- * must reset. The RN-52 must exit whatever mode it's in.
-*/

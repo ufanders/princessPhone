@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c pots.c rn52.c dtmf.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c rn52.c dtmf.c ag1170.c rotary.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/pots.o ${OBJECTDIR}/rn52.o ${OBJECTDIR}/dtmf.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/pots.o.d ${OBJECTDIR}/rn52.o.d ${OBJECTDIR}/dtmf.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/rn52.o ${OBJECTDIR}/dtmf.o ${OBJECTDIR}/ag1170.o ${OBJECTDIR}/rotary.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/rn52.o.d ${OBJECTDIR}/dtmf.o.d ${OBJECTDIR}/ag1170.o.d ${OBJECTDIR}/rotary.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/pots.o ${OBJECTDIR}/rn52.o ${OBJECTDIR}/dtmf.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/rn52.o ${OBJECTDIR}/dtmf.o ${OBJECTDIR}/ag1170.o ${OBJECTDIR}/rotary.o
 
 # Source Files
-SOURCEFILES=main.c pots.c rn52.c dtmf.c
+SOURCEFILES=main.c rn52.c dtmf.c ag1170.c rotary.c
 
 
 CFLAGS=
@@ -100,12 +100,6 @@ ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c     
 	
-${OBJECTDIR}/pots.o: pots.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/pots.o.d 
-	@${RM} ${OBJECTDIR}/pots.o 
-	@${FIXDEPS} "${OBJECTDIR}/pots.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/pots.o.d" -o ${OBJECTDIR}/pots.o pots.c     
-	
 ${OBJECTDIR}/rn52.o: rn52.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/rn52.o.d 
@@ -118,18 +112,24 @@ ${OBJECTDIR}/dtmf.o: dtmf.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/dtmf.o 
 	@${FIXDEPS} "${OBJECTDIR}/dtmf.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/dtmf.o.d" -o ${OBJECTDIR}/dtmf.o dtmf.c     
 	
+${OBJECTDIR}/ag1170.o: ag1170.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ag1170.o.d 
+	@${RM} ${OBJECTDIR}/ag1170.o 
+	@${FIXDEPS} "${OBJECTDIR}/ag1170.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/ag1170.o.d" -o ${OBJECTDIR}/ag1170.o ag1170.c     
+	
+${OBJECTDIR}/rotary.o: rotary.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rotary.o.d 
+	@${RM} ${OBJECTDIR}/rotary.o 
+	@${FIXDEPS} "${OBJECTDIR}/rotary.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/rotary.o.d" -o ${OBJECTDIR}/rotary.o rotary.c     
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c     
-	
-${OBJECTDIR}/pots.o: pots.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/pots.o.d 
-	@${RM} ${OBJECTDIR}/pots.o 
-	@${FIXDEPS} "${OBJECTDIR}/pots.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/pots.o.d" -o ${OBJECTDIR}/pots.o pots.c     
 	
 ${OBJECTDIR}/rn52.o: rn52.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -142,6 +142,18 @@ ${OBJECTDIR}/dtmf.o: dtmf.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/dtmf.o.d 
 	@${RM} ${OBJECTDIR}/dtmf.o 
 	@${FIXDEPS} "${OBJECTDIR}/dtmf.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/dtmf.o.d" -o ${OBJECTDIR}/dtmf.o dtmf.c     
+	
+${OBJECTDIR}/ag1170.o: ag1170.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ag1170.o.d 
+	@${RM} ${OBJECTDIR}/ag1170.o 
+	@${FIXDEPS} "${OBJECTDIR}/ag1170.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/ag1170.o.d" -o ${OBJECTDIR}/ag1170.o ag1170.c     
+	
+${OBJECTDIR}/rotary.o: rotary.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/rotary.o.d 
+	@${RM} ${OBJECTDIR}/rotary.o 
+	@${FIXDEPS} "${OBJECTDIR}/rotary.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -DCFG_E16_270 -I"../../../../../../../Applications/microchip/xc32/v1.32/pic32mx/include" -MMD -MF "${OBJECTDIR}/rotary.o.d" -o ${OBJECTDIR}/rotary.o rotary.c     
 	
 endif
 

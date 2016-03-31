@@ -17,9 +17,10 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
-      <itemPath>pots.c</itemPath>
       <itemPath>rn52.c</itemPath>
       <itemPath>dtmf.c</itemPath>
+      <itemPath>ag1170.c</itemPath>
+      <itemPath>rotary.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
