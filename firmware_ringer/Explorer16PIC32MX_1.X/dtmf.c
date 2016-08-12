@@ -95,11 +95,13 @@ int dtmf_dialtoneStop(void)
 {
     OC1CONbits.ON = 0;
     T2CONbits.ON = 0;
+    
+    return 0;
 }
 
 int dtmf_dialtoneStatusGet(void)
 {
-    return OC1CONbits.ON;
+    return T2CONbits.ON;
 }
 
 int dtmf_busytoneStart(int region)
@@ -117,6 +119,8 @@ int dtmf_busytoneStop(void)
 {
     OC1CONbits.ON = 0;
     T2CONbits.ON = 0;
+    
+    return 0;
 }
 
 int dtmf_busytoneStatusGet(void)

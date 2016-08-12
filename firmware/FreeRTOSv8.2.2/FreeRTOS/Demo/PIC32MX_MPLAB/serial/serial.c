@@ -75,7 +75,7 @@ xComPortHandle xSerialPortInitMinimal( unsigned long ulWantedBaud, unsigned port
         U1MODEbits.BRGH = 0;
         U1MODEbits.PDSEL = 0b00;
         U1MODEbits.STSEL = 0;
-        U1MODEbits.ON = 1;
+        //U1MODEbits.ON = 1;
         
         INTSetVectorPriority(INT_UART_1_VECTOR, INT_PRIORITY_LEVEL_2);
         INTEnable(INT_U1RX, INT_ENABLED);

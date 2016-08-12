@@ -16,7 +16,7 @@
  * different countries around the world.
  */
 
-int pots_bellRingInit(char region)
+int ag1170_init(char region)
 {
     int divisor;
     
@@ -51,7 +51,7 @@ int pots_bellRingInit(char region)
     return 0;
 }
 
-int pots_bellRingStart(void)
+int ag1170_bellRingStart(void)
 {
     AG1170_RM_LAT = 1; //set mode to 'ring'
     
@@ -60,7 +60,7 @@ int pots_bellRingStart(void)
     return 0;
 }
 
-int pots_bellRingStop(void)
+int ag1170_bellRingStop(void)
 {
     T1CONbits.ON = 0;  //disengage timer
     
@@ -69,9 +69,16 @@ int pots_bellRingStop(void)
     return 0;
 }
 
-int pots_bellRingStatusGet(void)
+int ag1170_bellRingStatusGet(void)
 {
     return AG1170_RM_LAT;
+}
+
+int ag1170_isOffHook(void)
+{
+    //we probably want debounce in here.
+    
+    return AG1170_SHK_PORT;
 }
 
 void __ISR(_TIMER_1_VECTOR, ipl2) Timer1Handler(void)

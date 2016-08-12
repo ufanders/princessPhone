@@ -21,6 +21,7 @@
       <itemPath>dtmf.c</itemPath>
       <itemPath>ag1170.c</itemPath>
       <itemPath>rotary.c</itemPath>
+      <itemPath>princessPhone.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

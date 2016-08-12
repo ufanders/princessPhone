@@ -3,6 +3,7 @@
 #include "HardwareProfile.h"
 #include <plib.h>
 
+unsigned char status;
 
 int main(void)
 {
@@ -29,5 +30,17 @@ int main(void)
     LED_RGB_GRN_TRIS = 0;
     LED_RGB_BLU_TRIS = 0;
     
-    while(1);
+    status = 0;
+    
+    status = rn52_init();
+    status = dtmf_init();
+    status = ag1170_init(0);
+    status = rotary_init();
+    
+    while(status); //halt here if any init function returns an error
+    
+    while(1)
+    {
+        princessPhone_tasks();
+    }
 }
